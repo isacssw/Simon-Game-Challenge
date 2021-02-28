@@ -1,7 +1,7 @@
 var buttonColours = ["red", "blue", "green", "yellow"];
 var gamePattern = [];
 var userClickedPattern = [];
-var level = 0;
+var level = 1;
 var started = true;
 
 
@@ -47,12 +47,12 @@ function animatePress(currentColour) {
   }, 100);
 }
 
-if (started) {
+
+ if (level !== 0) {
   $(document).on('keypress', function() {
     $("#level-title").text("Level 0");
     nextSequence();
-    started = false;
-  });
-} else {
-
-}
+   });
+  } else {
+    
+  }
