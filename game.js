@@ -57,7 +57,3 @@ $(document).on('keypress', function () {
     started = true;
   }
 });
-
-checkAnswer(currentLevel){
-
-}
