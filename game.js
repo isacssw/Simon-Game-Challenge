@@ -1,11 +1,13 @@
+// Var declaration
+
 var buttonColours = ["red", "blue", "green", "yellow"];
 var gamePattern = [];
 var userClickedPattern = [];
-var level = 1;
-var started = true;
+var level = 0;
+var started = false;
 
 
-$(".btn").click(function(event) {
+$(".btn").click(function (event) {
 
   var userChosenColour = $(this).attr("id");
 
@@ -42,17 +44,20 @@ function playSound(name) {
 
 function animatePress(currentColour) {
   $("#" + currentColour).addClass("pressed");
-  setTimeout(function() {
+  setTimeout(function () {
     $("#" + currentColour).removeClass("pressed");
   }, 100);
 }
 
 
- if (level !== 0) {
-  $(document).on('keypress', function() {
-    $("#level-title").text("Level 0");
+$(document).on('keypress', function () {
+  if (!started) {
+    $("#level-title").text("Level " + level);
     nextSequence();
-   });
-  } else {
-    
+    started = true;
   }
+});
+
+checkAnswer(currentLevel){
+
+}
