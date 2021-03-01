@@ -17,9 +17,13 @@ $(".btn").click(function (event) {
 
   playSound(userChosenColour);
 
+  checkAnswer(userClickedPattern.length-1);
+
 });
 
 function nextSequence() {
+
+  userClickedPattern = [];
 
   var randomNumber = Math.floor(Math.random() * 4)
 
@@ -60,14 +64,15 @@ $(document).on('keypress', function () {
 
 
 function checkAnswer (currentLevel){
-  if (userClickedPattern[level-1] === gamePattern[level-1]) {
+  if (userClickedPattern[currentLevel] === gamePattern[currentLevel]) {
       console.log("success");
     if (userClickedPattern.length === gamePattern.length) {
-      userClickedPattern = [];
       setTimeout(nextSequence(), 1000);
     }
-    
   } else {
-    console.log("wrong");
+    playSound("wrong");
+    $("body").addClass("game-over");
+    setTimeout(function(){
+      $("body").removeClass("game-over");}, 200);
   }
 }
