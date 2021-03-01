@@ -57,3 +57,17 @@ $(document).on('keypress', function () {
     started = true;
   }
 });
+
+
+function checkAnswer (currentLevel){
+  if (userClickedPattern[level-1] === gamePattern[level-1]) {
+      console.log("success");
+    if (userClickedPattern.length === gamePattern.length) {
+      userClickedPattern = [];
+      setTimeout(nextSequence(), 1000);
+    }
+    
+  } else {
+    console.log("wrong");
+  }
+}
